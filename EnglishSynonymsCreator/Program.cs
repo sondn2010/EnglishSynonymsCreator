@@ -483,7 +483,6 @@ namespace EnglishSynonymsCreator
 
         static void Main(string[] args)
         {
-
             CreateTemplateSynonyms();
         }
 
@@ -495,6 +494,8 @@ namespace EnglishSynonymsCreator
             {
                 return;
             }
+
+            var synonymClient = client.Synonyms();
 
             foreach (KeyValuePair<string, string> entry in _synonymsEnglishList)
             {
@@ -509,7 +510,7 @@ namespace EnglishSynonymsCreator
                 {
                     try
                     {
-                        client.Synonyms().Add(new Synonym(key, v.Trim(), true));
+                        synonymClient.Add(new Synonym(key, v.Trim(), true));
                     }
                     catch (Exception ex)
                     {
