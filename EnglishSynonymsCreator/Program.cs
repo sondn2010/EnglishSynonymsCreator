@@ -489,7 +489,7 @@ namespace EnglishSynonymsCreator
 
         private static void CreateTemplateSynonyms()
         {
-            var client = Client.CreateFromConfig()?.Optimizations()?.Synonyms();
+            var client = EPiServer.Find.Client.CreateFromConfig()?.Optimizations()?.Synonyms();
 
             if (client == null)
             {
